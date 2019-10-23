@@ -1,0 +1,107 @@
+{
+  "id": "1440039",
+  "name": "no name",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1310",
+      "name": "皇冠",
+      "font_class": "huangguan",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "400083",
+      "name": "定位",
+      "font_class": "htmal5icon14",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "688583",
+      "name": "点赞",
+      "font_class": "dianzan",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "805957",
+      "name": "选中",
+      "font_class": "xuanzhong",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "967624",
+      "name": "圈",
+      "font_class": "circle",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "1245552",
+      "name": "定位",
+      "font_class": "dingwei",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "2668432",
+      "name": "箭头",
+      "font_class": "jiantou",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "5288597",
+      "name": "问号",
+      "font_class": "wenhao",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
+      "icon_id": "5387930",
+      "name": "箭头_页面_向上_o",
+      "font_class": "jiantou_yemian_xiangshang_o",
+      "unicode": "eb93",
+      "unicode_decimal": 60307
+    },
+    {
+      "icon_id": "5387938",
+      "name": "箭头_页面_向下_o",
+      "font_class": "jiantou_yemian_xiangxia_o",
+      "unicode": "eb95",
+      "unicode_decimal": 60309
+    },
+    {
+      "icon_id": "5524666",
+      "name": "star",
+      "font_class": "star",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "6129216",
+      "name": "174会员、皇冠、冠军",
+      "font_class": "huiyuanhuangguanguanjun",
+      "unicode": "e7aa",
+      "unicode_decimal": 59306
+    },
+    {
+      "icon_id": "6141083",
+      "name": "AK-YK圆圈",
+      "font_class": "yk_yuanquan",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "8341756",
+      "name": "箭头2_上",
+      "font_class": "jiantou_shang",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    }
+  ]
+}

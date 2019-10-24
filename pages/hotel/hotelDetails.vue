@@ -19,36 +19,42 @@
         <div class="header">
           <div class="title">
             {{item.name}}
-            <span v-if="item.hotellevel.level === 5">
+             <span v-if="item.hotellevel=== null"></span>
+            <span v-if="item.hotellevel !== null && item.hotellevel.level === 5">
               <i class="el-icon-star-on"></i>
               <i class="el-icon-star-on"></i>
               <i class="el-icon-star-on"></i>
               <i class="el-icon-star-on"></i>
               <i class="el-icon-star-on"></i>
+              <em>5星级</em>
             </span>
 
-            <span v-if="item.hotellevel.level === 4">
+            <span v-if="item.hotellevel !== null && item.hotellevel.level === 4">
               <i class="el-icon-star-on"></i>
               <i class="el-icon-star-on"></i>
               <i class="el-icon-star-on"></i>
               <i class="el-icon-star-on"></i>
+              <em>4星级</em>
             </span>
 
-            <span v-if="item.hotellevel.level === 3">
+            <span v-if="item.hotellevel !== null && item.hotellevel.level === 3">
               <i class="el-icon-star-on"></i>
               <i class="el-icon-star-on"></i>
               <i class="el-icon-star-on"></i>
+              <em>3星级</em>
             </span>
 
-            <span v-if="item.hotellevel.level === 2">
+            <span v-if="item.hotellevel !== null && item.hotellevel.level === 2">
               <i class="el-icon-star-on"></i>
               <i class="el-icon-star-on"></i>
+              <em>2星级</em>
             </span>
 
-            <span v-if="item.hotellevel.level === 1">
+            <span v-if="item.hotellevel !== null && item.hotellevel.level === 1">
               <i class="el-icon-star-on"></i>
+              <em>1星级</em>
             </span>
-            <span v-if="item.hotellevel.level === 0"></span>
+           
           </div>
         </div>
 
@@ -233,6 +239,12 @@ export default {
       color: #333;
       i {
         color: #ff9900;
+      }
+      em{
+        color: #ff9900;
+        font-weight: 400;
+        font-family: SimSun;
+        font-style: oblique;
       }
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <el-row class="content">
     <p class="title">评论</p>
     <!-- 当点击回复的时候显示需要回复的评论用户，否则隐藏 -->
     <span class="huifu" v-if="isShow">
@@ -7,7 +7,7 @@
       <i class="iconfont icon-guanbi" @click="handleCancel"></i>
     </span>
     <!-- 输入框 -->
-    <div>
+    <el-row>
       <textarea
         class="textarea"
         placeholder="说点什么吧..."
@@ -16,11 +16,11 @@
         style="resize: none"
         ref="textarea"
       ></textarea>
-    </div>
+    </el-row>
     <!-- 图片的选择和提交按钮 -->
-    <div class="submit el-row is-justify-space-between el-row--flex">
+    <el-row class="submit el-row is-justify-space-between el-row--flex">
       <!-- 调用图片上传组件 -->
-      <div class="upload">
+      <el-row class="upload">
         <el-upload
           ref="buttons"
           action="http://127.0.0.1:1337/upload"
@@ -33,21 +33,21 @@
         >
           <i class="el-icon-plus"></i>
         </el-upload>
-      </div>
+      </el-row>
       <p class="button" @click="handlesubmit">提交</p>
-    </div>
+    </el-row>
     <!-- 评论的主要内容 -->
-    <commends
+    <comments
       v-for="(item,index) in datalist"
       :key="index"
       :data="item"
       class="commends"
       @handlehuifu="handlehuifu"
-    ></commends>
+    ></comments>
     <!-- 如果评论内容为空的话显示为暂无评论 -->
-    <div v-if="commend.length==0" class="noCommend">暂无评论内容,赶快来写下您的精彩评论吧~~</div>
+    <el-row v-if="commend.length==0" class="noCommend">暂无评论内容,赶快来写下您的精彩评论吧~~</el-row>
     <!-- 分页组件 -->
-    <div class="block">
+    <el-row class="block">
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -57,17 +57,17 @@
         layout="total, sizes, prev, pager, next, jumper"
         :total="commend.length"
       ></el-pagination>
-    </div>
-  </div>
+    </el-row>
+  </el-row>
 </template>
 
 <script>
 //引入评论列表
-import commends from "@/components/post/cms.vue";
+import comments from "@/components/post/commentFloor.vue";
 export default {
   //注册评论主要内容的组件
   components: {
-    commends
+    comments
   },
   data() {
     return {

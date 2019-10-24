@@ -1,26 +1,26 @@
 <template>
-  <div class="containar">
+  <el-row class="containar">
     <Item :data="data.parent" v-if="data.parent" @handlehuifu="handlehuifu" />
     <el-row class="user" type="flex" justify="space-between">
-      <div class="user_info">
+      <el-row class="user_info">
         <span>
           <img :src="$axios.defaults.baseURL+data.account.defaultAvatar" />
           {{data.account.nickname}}
         </span>
         <i>{{data.created_at|format}}</i>
-      </div>
+      </el-row>
       <em>{{data.level}}</em>
     </el-row>
-    <div class="content">
+    <el-row class="content">
       <p>{{data.content}}</p>
       <el-row type="flex" justify="start">
-        <div class="content_img" v-for="(item,index) in data.pics" v-show="data.pics" :key="index">
+        <el-row class="content_img" v-for="(item,index) in data.pics" v-show="data.pics" :key="index">
           <img :src="$axios.defaults.baseURL+item.url" alt />
-        </div>
+        </el-row>
       </el-row>
       <span class="reply" @click="handlehuifu(data)">回复</span>
-    </div>
-  </div>
+    </el-row>
+  </el-row>
 </template>
 
 

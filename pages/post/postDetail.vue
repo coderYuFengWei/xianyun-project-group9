@@ -51,7 +51,7 @@
 
 <script>
 import PostDetailAside from "@/components/post/postDetailAside";
-import PostComment from "@/components/post/cm";
+import PostComment from "@/components/post/commentPart";
 import moment from "moment";
 export default {
   data() {

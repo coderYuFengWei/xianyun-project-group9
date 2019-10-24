@@ -201,7 +201,7 @@ export default {
       });
     },
     jumpPage(){
-      this.$router.push({path:"/post/Add"})
+      this.$router.push({path:"/post/postAdd"})
     },
     jumpDetail(id){
       this.$router.push({path:"/post/postDetail",query:{id:id}})

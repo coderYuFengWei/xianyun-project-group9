@@ -71,7 +71,7 @@
       <el-row class="comment_list" v-for="(com,index) in comments" :key="index">
         <el-row class="comment_title_info">
           <el-row class="user_info">
-            <img src="https://images.mafengwo.net/images/i/face/brands_v3/6@2x.png" alt />
+            <img :src="$axios.defaults.baseURL+com.account.defaultAvatar" alt />
             <span class="username">{{com.account.nickname}}</span>
             <span class="com_time">{{creat_time}}</span>
           </el-row>
@@ -87,7 +87,7 @@
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
           :current-page="currentPage"
-          :page-sizes="[2, 4, 6, 20]"
+          :page-sizes="[2, 4, 6, 8,10]"
           :page-size="pageSize"
           layout="total, sizes, prev, pager, next, jumper"
           :total="total"
@@ -126,7 +126,8 @@ export default {
         post: this.$route.query.id,
         pics: [],
         follow: 0,
-        nickname:''
+        score: {},
+
       },
       postId: 1,
       sort: "",
@@ -197,7 +198,7 @@ export default {
         this.item = data[0];
         console.log(this.item);
         this.creat_time = moment(this.item.update_at).format(
-          `YYYY-MM-DD  hh-mm`
+          `YYYY-MM-DD  hh:mm`
         );
 
         this.$axios({
@@ -249,7 +250,6 @@ export default {
         },
         data: this.commentContent
       }).then(res => {
-        console.log(res);
         if (res.status == 200) {
           this.$message.success(res.data.message);
           this.comments.unshift(this.commentContent);

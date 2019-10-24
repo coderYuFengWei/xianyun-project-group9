@@ -42,12 +42,12 @@
         </el-row>
         <el-row class="center" v-for="(item,index) in hotelList">
             <el-col :span="8" style="width:320px;height:210px;">
-                <nuxt-link :to="`/hotel/${item.id}.html`">
+                <nuxt-link :to="`/hotel/hotelDetails?id=${item.id}`">
                     <el-image style="width: 320px; height: 210px" :src="item.photos"></el-image>
                 </nuxt-link>
             </el-col>
             <el-col :span="11" class="detail">
-                <nuxt-link :to="`/hotel/${item.id}.html`">
+                <nuxt-link :to="`/hotel/hotelDetails?id=${item.id}`">
                     <h2>{{item.name}}</h2>
                 </nuxt-link>
                 <p class="type">{{item.alias}}

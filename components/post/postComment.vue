@@ -14,6 +14,8 @@
         autocomplete="off"
         style="resize: none"
         ref="textarea"
+        cols="30"
+        rows="6"
       ></textarea>
     </el-row>
 
@@ -195,6 +197,7 @@ export default {
 <style scoped lang="less">
 .content {
   margin-bottom: 20px;
+  width: 720px;
   .huifu {
     background-color: #f4f4f5;
     margin-bottom: 10px;
@@ -214,8 +217,12 @@ export default {
   .title {
     columns: #000000;
     margin-bottom: 20px;
+    font-size: 20px;
   }
-  .textarea {
+  /deep/.textarea {
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 720px;
     min-height: 35px;
     padding: 10px;
     width: 100%;
@@ -227,10 +234,14 @@ export default {
       text-align: center;
       background-color: #409eff;
       color: #fff;
+      font-size: 14px;
       width: 60px;
       height: 30px;
       border-radius: 5px;
       line-height: 30px;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   .noComment {

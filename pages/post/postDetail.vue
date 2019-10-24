@@ -64,12 +64,6 @@ export default {
       dialogImageUrl: "",
       dialogVisible: false,
 
-      //分页器数据
-      currentPage: 1,
-      pageIndex: 0,
-      pageSize: 2,
-      total: 0,
-
       commentContent: {
         content: "",
         post: this.$route.query.id,
@@ -90,24 +84,8 @@ export default {
     PostDetailAside,
     PostComment
   },
+  
   methods: {
-    //获取评论
-    getComments() {
-      this.$axios({
-        url: "/posts/comments",
-        params: {
-          post: this.$route.query.id,
-          _limit: this.pageSize,
-          _start: this.pageIndex
-        }
-      }).then(res => {
-        console.log(res);
-        this.total = res.data.total;
-        let { data } = res.data;
-        this.comments = data;
-      });
-    },
-
     //收藏文章
     handleCollect() {
       this.$axios({
@@ -159,8 +137,6 @@ export default {
           let { data } = res.data;
           this.aside = data;
         });
-
-        this.getComments();
       });
     },
 
@@ -187,29 +163,6 @@ export default {
       });
     },
 
-    // 点击提交评论
-    handleSubmit() {
-      if (!this.commentContent.content) {
-        return;
-      }
-
-      this.$axios({
-        url: "/comments",
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${this.$store.state.user.userInfo.token}`
-        },
-        data: this.commentContent
-      }).then(res => {
-        if (res.status == 200) {
-          this.$message.success(res.data.message);
-          this.comments.unshift(this.commentContent);
-          this.commentContent.content = "";
-          this.getComments();
-        }
-      });
-    },
-
     //切换评论条数
     handleSizeChange(val) {
       this.pageSize = val;
@@ -220,14 +173,6 @@ export default {
     handleCurrentChange(val) {
       this.pageIndex = (val - 1) * this.pageSize;
       this.getComments();
-    },
-
-    handleRemove(file, fileList) {
-      console.log(file, fileList);
-    },
-    handlePictureCardPreview(file) {
-      this.dialogImageUrl = file.url;
-      this.dialogVisible = true;
     }
   },
 

@@ -1,6 +1,6 @@
 <template>
   <el-row class="containar">
-    <Item :data="data.parent" v-if="data.parent" @handdleReply="handdleReply" />
+    <Item :data="data.parent" v-if="data.parent" @handleReply="handleReply" />
     <el-row class="user" type="flex" justify="space-between">
       <el-row class="user_info">
         <span>
@@ -23,7 +23,7 @@
           <img :src="$axios.defaults.baseURL+item.url" alt />
         </el-row>
       </el-row>
-      <span class="reply" @click="handdleReply(data)">回复</span>
+      <span class="reply" @click="handleReply(data)">回复</span>
     </el-row>
   </el-row>
 </template>
@@ -40,8 +40,8 @@ export default {
   },
   methods: {
     //点击回复
-    handdleReply(item) {
-      this.$emit("handdleReply", item);
+    handleReply(item) {
+      this.$emit("handleReply", item);
     }
   },
   filters: {
@@ -102,7 +102,7 @@ export default {
     }
     &:hover span {
       display: block;
-      color: #ffa500;
+      color: #409eff;
       cursor: pointer;
     }
   }

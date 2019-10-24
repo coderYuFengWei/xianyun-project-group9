@@ -74,7 +74,9 @@ export default {
 
             //   存放arr城市的数组
             cities: [],
+
             input: "",
+
             arr: [],
 
             config: {
@@ -196,16 +198,13 @@ export default {
         // 草稿箱点击时触发
         handleDraft() {
             var quill = this.$refs.vueEditor.editor;
-            quill.clipboard.dangerouslyPasteHTML(0, ``);
+            this.form.content = quill.root.innerHTML;
+
             var time = moment().format("YYYY-MM-DD");
             const data = { ...this.form, time };
             this.$store.commit("post/setdraft", data);
-            this.form = {
-                content: "",
-                title: "",
-                city: ""
-            };
-            console.log(data);
+          
+            console.log(data,11111);
         },
 
         // 草稿箱点击删除时触发
@@ -218,7 +217,7 @@ export default {
                 .then(() => {
                     this.$message({
                         type: "success",
-                        message: "删除草稿箱成功!"
+                        message: "删除成功!"
                     });
                     this.$store.commit("post/deldraft", index);
                     this.form = {};
@@ -262,6 +261,9 @@ export default {
             margin-bottom: 20px;
         }
     }
+}
+/deep/ .el-form-item__content {
+    margin: 0 !important; 
 }
 /deep/ .ql-container.ql-snow {
     height: 400px;
@@ -325,5 +327,11 @@ a {
 }
 /deep/.el-form-item__label {
     margin-top: 20px;
+}
+.el-icon-edit {
+    font-size: 20px;
+}
+.el-icon-edit:hover {
+    color: orangered;
 }
 </style>

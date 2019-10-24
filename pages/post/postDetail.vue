@@ -39,69 +39,11 @@
         </el-row>
       </el-row>
 
-      <!-- 添加评论 -->
-      <el-row class="com_part">
-        <h4>评论</h4>
-        <textarea
-          v-model="commentContent.content"
-          ref="textarea"
-          placeholder="说点什么吧!"
-          cols="30"
-          rows="3"
-        ></textarea>
-        <el-row class="handleIn">
-          <el-upload
-            action="https://jsonplaceholder.typicode.com/posts/"
-            accept="png, jpeg, gif, jpg"
-            list-type="picture-card"
-            :on-preview="handlePictureCardPreview"
-            :on-remove="handleRemove"
-            class="aaa"
-          >
-            <i class="el-icon-plus"></i>
-          </el-upload>
-          <el-dialog :visible.sync="dialogVisible" size="tiny">
-            <img width="100%" :src="dialogImageUrl" alt />
-          </el-dialog>
-          <el-button type="primary" @click="handleSubmit" class="but">提交</el-button>
-        </el-row>
+      <PostComment/>
+
       </el-row>
 
-      <!-- 评论部分 -->
-      <el-row class="comment_list" v-for="(com,index) in comments" :key="index">
-        <el-row class="comment_title_info">
-          <el-row class="user_info">
-            <img :src="$axios.defaults.baseURL+com.account.defaultAvatar" alt />
-            <span class="username">{{com.account.nickname}}</span>
-            <span class="com_time">{{creat_time}}</span>
-          </el-row>
-          <span class="com_floor">{{com.level}}</span>
-        </el-row>
-        <el-row class="comment_content">{{com.content}}</el-row>
-        <el-row class="comment_pic" v-if="showPic">
-          <img src="#" alt />
-        </el-row>
-        <el-row class="reply">回复</el-row>
-
-        <!-- 评论楼层 -->
-          <!-- <PostComment :data="comments" /> -->
-      </el-row>
-
-      <!-- 分页器 -->
-      <el-row class="block">
-        <el-pagination
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page="currentPage"
-          :page-sizes="[2, 4, 6, 8,10]"
-          :page-size="pageSize"
-          layout="total, sizes, prev, pager, next, jumper"
-          :total="total"
-          v-if="comments.length>0"
-        ></el-pagination>
-      </el-row>
-    </el-row>
-
+  
     <!-- 相关攻略 -->
     <PostDetailAside :data="aside" @handleAside="handleAside" />
   </el-row>
@@ -109,7 +51,7 @@
 
 <script>
 import PostDetailAside from "@/components/post/postDetailAside";
-// import PostComment from "@/components/post/postComment";
+import PostComment from "@/components/post/cm";
 import moment from "moment";
 export default {
   data() {
@@ -144,8 +86,8 @@ export default {
     };
   },
   components: {
-    PostDetailAside
-    // PostComment
+    PostDetailAside,
+    PostComment
   },
   methods: {
     //获取评论

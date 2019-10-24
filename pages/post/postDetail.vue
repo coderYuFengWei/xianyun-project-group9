@@ -30,7 +30,9 @@
           <span>收藏</span>
         </el-row>
         <el-row class="share">
-          <i class="el-icon-share"></i>
+          <a href="https://wx.qq.com">
+            <i class="el-icon-share"></i>
+          </a>
           <span>分享</span>
         </el-row>
         <el-row class="like">

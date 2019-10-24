@@ -1,6 +1,6 @@
 <template>
   <el-row class="containar">
-    <Item :data="data.parent" v-if="data.parent" @handlehuifu="handlehuifu" />
+    <Item :data="data.parent" v-if="data.parent" @handdleReply="handdleReply" />
     <el-row class="user" type="flex" justify="space-between">
       <el-row class="user_info">
         <span>
@@ -23,11 +23,10 @@
           <img :src="$axios.defaults.baseURL+item.url" alt />
         </el-row>
       </el-row>
-      <span class="reply" @click="handlehuifu(data)">回复</span>
+      <span class="reply" @click="handdleReply(data)">回复</span>
     </el-row>
   </el-row>
 </template>
-
 
 <script>
 import moment from "moment";
@@ -40,8 +39,9 @@ export default {
     }
   },
   methods: {
-    handlehuifu(item) {
-      this.$emit("handlehuifu", item);
+    //点击回复
+    handdleReply(item) {
+      this.$emit("handdleReply", item);
     }
   },
   filters: {
@@ -52,7 +52,6 @@ export default {
   }
 };
 </script>
-
 
 <style scoped lang="less">
 .containar {

@@ -5,8 +5,8 @@
       回复 @{{isShow}}
       <i class="iconfont icon-guanbi" @click="handleCancel"></i>
     </span>
-    <!-- 输入框 -->
-    <el-row>
+
+    <el-row class="comment_input">
       <textarea
         class="textarea"
         placeholder="说点什么吧..."
@@ -16,9 +16,8 @@
         ref="textarea"
       ></textarea>
     </el-row>
-    <!-- 图片的选择和提交按钮 -->
+
     <el-row class="submit el-row is-justify-space-between el-row--flex">
-      <!-- 调用图片上传组件 -->
       <el-row class="upload">
         <el-upload
           ref="buttons"
@@ -35,16 +34,15 @@
       </el-row>
       <p class="button" @click="handlesubmit">提交</p>
     </el-row>
-    <!-- 评论的主要内容 -->
-    <comments
+
+    <CommentFloor
       v-for="(item,index) in datalist"
       :key="index"
       :data="item"
       class="commends"
-      @handlehuifu="handlehuifu"
-    ></comments>
-    <!-- 如果评论内容为空的话显示为暂无评论 -->
-    <el-row v-if="commend.length==0" class="noCommend">暂无评论内容,赶快来写下您的精彩评论吧~~</el-row>
+      @handleReply="handleReply"
+    ></CommentFloor>
+    <el-row v-if="commend.length==0" class="noComment">暂无评论内容,赶快来写下您的精彩评论吧~~</el-row>
 
     <!-- 分页器 -->
     <el-row class="block">
@@ -62,7 +60,7 @@
 </template>
 
 <script>
-import comments from "@/components/post/commentFloor.vue";
+import CommentFloor from "@/components/post/commentFloor.vue";
 export default {
   data() {
     return {
@@ -84,7 +82,7 @@ export default {
   },
 
   components: {
-    comments
+    CommentFloor
   },
 
   methods: {
@@ -165,7 +163,7 @@ export default {
     },
 
     //点击回复
-    handlehuifu(value) {
+    handleReply(value) {
       this.form.follow = value.id;
       this.isShow = value.account.nickname;
       this.$refs.textarea.focus();
@@ -235,7 +233,7 @@ export default {
       line-height: 30px;
     }
   }
-  .noCommend {
+  .noComment {
     color: #cccccc;
     text-align: center;
     margin-bottom: 50px;

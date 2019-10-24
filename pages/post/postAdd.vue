@@ -42,12 +42,14 @@
                     :key="index"
                     v-if="$store.state.post.draft.length"
                 >
-                    <el-col :span="16">
+                    <el-col :span="16" class="draft">
                         <i @click="handleEdit(index)" class="el-icon-edit-outline"></i>
                         {{item.title}}
                     </el-col>
                     <el-col :span="8">
-                        <el-button type="danger" @click="handleDelet(index)">删除</el-button>
+                        <el-button type="danger" @click="handleDelet(index)" class="del">
+                            <i class="el-icon-delete"></i>
+                        </el-button>
                     </el-col>
                 </el-row>
             </div>
@@ -151,9 +153,12 @@ export default {
                             Authorization: `Bearer ${this.$store.state.user.userInfo.token}`
                         }
                     }).then(res => {
+                        console.log(res.status);
                         if (res.status === 200) {
                             this.$message.success(res.data.message);
-                            window.location.reload();
+                            this.$router.push({ path: "/post" });
+                            // window.location.reload();
+
                             this.form = {
                                 content: "",
                                 title: "",
@@ -203,8 +208,8 @@ export default {
             var time = moment().format("YYYY-MM-DD");
             const data = { ...this.form, time };
             this.$store.commit("post/setdraft", data);
-          
-            console.log(data,11111);
+
+            console.log(data, 11111);
         },
 
         // 草稿箱点击删除时触发
@@ -263,7 +268,8 @@ export default {
     }
 }
 /deep/ .el-form-item__content {
-    margin: 0 !important; 
+    margin: 0 !important;
+    vertical-align: middle;
 }
 /deep/ .ql-container.ql-snow {
     height: 400px;
@@ -312,6 +318,32 @@ a {
 
     .btn {
         margin-bottom: 10px;
+        .draft {
+            display: inline-block;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            .el-icon-edit-outline:hover {
+                color: orangered;
+            }
+        }
+    }
+    .del {
+        margin-left: 20px;
+        // padding-top: 8px;
+    }
+    .el-button {
+        position: relative;
+        width: 18px;
+        height: 25px;
+        text-align: center;
+        line-height: 20px;
+        i {
+            position: absolute;
+            top: 3px;
+            left: 7px;
+        }
     }
 }
 .container .main[data-v-9d84ab6a] span {
@@ -323,7 +355,7 @@ a {
     margin-bottom: 5px;
 }
 /deep/.el-form-item__content {
-    margin-top: 20px;
+    margin-top: 20px; 
 }
 /deep/.el-form-item__label {
     margin-top: 20px;
@@ -331,7 +363,10 @@ a {
 .el-icon-edit {
     font-size: 20px;
 }
-.el-icon-edit-outline:hover {
+.el-icon-edit-outline :hover {
     color: orangered;
+}
+.inline-input {
+    padding-top: 21px;
 }
 </style>

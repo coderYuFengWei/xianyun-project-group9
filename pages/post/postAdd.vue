@@ -43,7 +43,7 @@
                     v-if="$store.state.post.draft.length"
                 >
                     <el-col :span="16">
-                        <i @click="handleEdit(index)" class="el-icon-edit"></i>
+                        <i @click="handleEdit(index)" class="el-icon-edit-outline"></i>
                         {{item.title}}
                     </el-col>
                     <el-col :span="8">
@@ -331,7 +331,7 @@ a {
 .el-icon-edit {
     font-size: 20px;
 }
-.el-icon-edit:hover {
+.el-icon-edit-outline:hover {
     color: orangered;
 }
 </style>

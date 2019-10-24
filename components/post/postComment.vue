@@ -1,16 +1,23 @@
 <template>
-  <el-row class="comment_list">
-    <el-row class="comment_title_info">
-      <el-row class="user_info">
-        <img src="http://127.0.0.1:1337/assets/images/avatar.jpg" alt />
-        <span class="username">用户名</span>
-        <span class="com_time">2019-10-22 4:49</span>
-      </el-row>
-      <span class="com_floor">{{item.level}}</span>
-    </el-row>
-    <el-row class="comment_content">{{item.content}}</el-row>
-    <el-row class="reply">回复</el-row>
-  </el-row>
+  <!-- 评论楼层 -->
+      <el-row class="comment_list" v-for="(com,index) in comments" :key="index">
+        <el-row class="comment_title_info">
+          <el-row class="user_info">
+            <img :src="$axios.defaults.baseURL+com.account.defaultAvatar" alt />
+            <span class="username">{{com.account.nickname}}</span>
+            <span class="com_time">{{creat_time}}</span>
+          </el-row>
+          <span class="com_floor">{{com.level}}</span>
+        </el-row>
+        <el-row class="comment_content">{{com.content}}</el-row>
+        <el-row class="comment_pic" v-if="showPic">
+          <img src="#" alt />
+        </el-row>
+        <el-row class="reply">回复</el-row>
+
+        <!-- 评论楼层 -->
+          <PostComment :data="comments" />
+     
 </template>
 
 <script>

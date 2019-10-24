@@ -3,7 +3,7 @@
     <!-- 头部景点导航 左边侧边栏-->
 
     <!-- 组件 -->
-    <ScenicSpotNav @getCity="getCity" @getPopularCity="getPopularCity"/>
+    <ScenicSpotNav @getCity="getCity" @getPopularCity="getPopularCity" />
 
     <!-- 文章列表 -->
     <div class="articleList">
@@ -12,31 +12,33 @@
       <!-- 推荐攻略列表 -->
 
       <!-- 组件 -->
-      <ArticleList :cityData="cityData" :datas="popularCity"/>
+      <ArticleList :cityData="cityData" :datas="popularCity" />
     </div>
   </section>
 </template>
-
 <script>
 import ScenicSpotNav from "@/components/post/ScenicSpotNav";
 import ArticleList from "@/components/post/ArticleList";
 export default {
+
   data() {
     return {
       cityData: "",
-      popularCity:{}
+      popularCity: {}
     };
   },
+
   components: {
     ScenicSpotNav,
     ArticleList
   },
+
   methods: {
     getCity(city) {
       this.cityData = city;
     },
-    getPopularCity(PopularCity){
-      this.popularCity = PopularCity
+    getPopularCity(PopularCity) {
+      this.popularCity = PopularCity;
     }
   }
 };

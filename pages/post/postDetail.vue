@@ -39,11 +39,10 @@
         </el-row>
       </el-row>
 
-      <PostComment/>
+      <!-- 评论部分 -->
+      <PostComment />
+    </el-row>
 
-      </el-row>
-
-  
     <!-- 相关攻略 -->
     <PostDetailAside :data="aside" @handleAside="handleAside" />
   </el-row>
@@ -51,7 +50,7 @@
 
 <script>
 import PostDetailAside from "@/components/post/postDetailAside";
-import PostComment from "@/components/post/commentPart";
+import PostComment from "@/components/post/postComment";
 import moment from "moment";
 export default {
   data() {
@@ -82,7 +81,7 @@ export default {
       limit: 2,
       start: 1,
       filters: {},
-      showPic:false
+      showPic: false
     };
   },
   components: {
@@ -100,7 +99,7 @@ export default {
           _start: this.pageIndex
         }
       }).then(res => {
-        console.log(res)
+        console.log(res);
         this.total = res.data.total;
         let { data } = res.data;
         this.comments = data;
@@ -378,7 +377,7 @@ export default {
         border: 1px dashed #cccccc;
         width: 90px;
         height: 90px;
-        border-radius:5px;
+        border-radius: 5px;
         box-sizing: border-box;
         padding: 5px;
       }

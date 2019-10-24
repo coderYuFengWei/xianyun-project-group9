@@ -14,7 +14,12 @@
     <el-row class="content">
       <p>{{data.content}}</p>
       <el-row type="flex" justify="start">
-        <el-row class="content_img" v-for="(item,index) in data.pics" v-show="data.pics" :key="index">
+        <el-row
+          class="content_img"
+          v-for="(item,index) in data.pics"
+          v-show="data.pics"
+          :key="index"
+        >
           <img :src="$axios.defaults.baseURL+item.url" alt />
         </el-row>
       </el-row>

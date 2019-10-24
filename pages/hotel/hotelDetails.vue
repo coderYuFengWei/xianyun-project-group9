@@ -116,7 +116,6 @@
             <div id="container"></div>
             <div id="panel"></div>
           </div>
-          
         </div>
 
         <!-- 酒店信息 -->
@@ -221,9 +220,9 @@ export default {
   },
   components: {},
   methods: {
-          handleClick(tab, event) {
-        console.log(tab, event);
-      },
+    handleClick(tab, event) {
+      console.log(tab, event);
+    },
     handleSearch() {
       this.map();
     },
@@ -265,7 +264,6 @@ export default {
     }
   },
   mounted() {
- 
     const id = this.$route.query.id;
     this.$axios({
       url: "/hotels",
@@ -518,16 +516,14 @@ export default {
   border-bottom-right-radius: 4px;
   overflow: hidden;
 }
-.Matse{
-color: blue;
-span{
-  color: #000;
+.Matse {
+  color: blue;
+  span {
+    color: #000;
+  }
+  h3 {
+    padding: 30px 0;
+    font-size: 26px;
+  }
 }
-h3{
-  padding: 30px 0;
-  font-size: 26px;
-}
-}
-
-
 </style>

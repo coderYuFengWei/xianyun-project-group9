@@ -7,8 +7,12 @@
 
     <!-- 城市推荐导航 -->
     <div class="cityNav">
-      <em>推荐：</em> 
-      <span v-for="(item,index) in datas.children" :key="index" @click="getCity(item.city)">{{item.city}}</span>
+      <em>推荐：</em>
+      <span
+        v-for="(item,index) in datas.children"
+        :key="index"
+        @click="getCity(item.city)"
+      >{{item.city}}</span>
     </div>
     <div class="heade">
       <span>推荐攻略</span>
@@ -138,9 +142,9 @@ export default {
       type: String,
       default: ""
     },
-    datas:{
-      type:Object,
-      default:{}
+    datas: {
+      type: Object,
+      default: {}
     }
   },
   data() {
@@ -166,8 +170,7 @@ export default {
         this.searchCity = val;
       }
     },
-    getCity(get_city){
-      // console.log(get_city)
+    getCity(get_city) {
       this.searchCity = get_city;
     },
     handleSizeChange(val) {
@@ -193,26 +196,24 @@ export default {
         url: "/posts",
         params: data
       }).then(res => {
-        // console.log(res);
         const { data, total } = res.data;
         this.articleData = data;
         this.total = total;
         this.isShow = true;
       });
     },
-    jumpPage(){
-      this.$router.push({path:"/post/postAdd"})
+    jumpPage() {
+      this.$router.push({ path: "/post/postAdd" });
     },
-    jumpDetail(id){
-      this.$router.push({path:"/post/postDetail",query:{id:id}})
-      // console.log(id)
+    jumpDetail(id) {
+      this.$router.push({ path: "/post/postDetail", query: { id: id } });
     }
   },
   watch: {
     cityData() {
       this.getData();
     },
-    searchCity(){
+    searchCity() {
       this.getData();
     }
   }
@@ -240,7 +241,6 @@ export default {
     line-height: 40px;
     border-radius: 10px;
     margin-bottom: 5px;
-
   }
 }
 .title {
@@ -361,7 +361,7 @@ export default {
     border-bottom: 1px solid #ffa500;
     cursor: pointer;
   }
-  span{
+  span {
     margin-right: 10px;
   }
 }
@@ -372,7 +372,7 @@ export default {
   line-height: 80px;
   font-size: 18px;
 }
-.notes:hover{
+.notes:hover {
   cursor: pointer;
 }
 </style>

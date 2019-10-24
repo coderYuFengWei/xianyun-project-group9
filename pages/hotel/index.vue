@@ -128,7 +128,7 @@ export default {
   data() {
     return {
       hotel: {},
-      cityId: 199,
+      cityId: 12,
       tag: -1,
       label: false,
       cities: [],

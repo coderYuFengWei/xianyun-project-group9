@@ -52,6 +52,7 @@
         <el-row class="handleIn">
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
+            accept="png, jpeg, gif, jpg"
             list-type="picture-card"
             :on-preview="handlePictureCardPreview"
             :on-remove="handleRemove"
@@ -67,7 +68,6 @@
       </el-row>
 
       <!-- 评论部分 -->
-      <!-- <PostComment :data="comments" /> -->
       <el-row class="comment_list" v-for="(com,index) in comments" :key="index">
         <el-row class="comment_title_info">
           <el-row class="user_info">
@@ -78,7 +78,13 @@
           <span class="com_floor">{{com.level}}</span>
         </el-row>
         <el-row class="comment_content">{{com.content}}</el-row>
+        <el-row class="comment_pic" v-if="showPic">
+          <img src="#" alt />
+        </el-row>
         <el-row class="reply">回复</el-row>
+
+        <!-- 评论楼层 -->
+          <!-- <PostComment :data="comments" /> -->
       </el-row>
 
       <!-- 分页器 -->
@@ -127,13 +133,14 @@ export default {
         pics: [],
         follow: 0,
         score: {},
-
+        account: {}
       },
       postId: 1,
       sort: "",
       limit: 2,
       start: 1,
-      filters: {}
+      filters: {},
+      showPic:false
     };
   },
   components: {
@@ -151,6 +158,7 @@ export default {
           _start: this.pageIndex
         }
       }).then(res => {
+        console.log(res)
         this.total = res.data.total;
         let { data } = res.data;
         this.comments = data;
@@ -254,6 +262,7 @@ export default {
           this.$message.success(res.data.message);
           this.comments.unshift(this.commentContent);
           this.commentContent.content = "";
+          this.getComments();
         }
       });
     },
@@ -421,6 +430,15 @@ export default {
       .comment_content {
         font-size: 14px;
         padding: 10px 0;
+      }
+
+      .comment_pic {
+        border: 1px dashed #cccccc;
+        width: 90px;
+        height: 90px;
+        border-radius:5px;
+        box-sizing: border-box;
+        padding: 5px;
       }
 
       .reply {

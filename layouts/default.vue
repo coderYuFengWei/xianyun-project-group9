@@ -14,6 +14,7 @@
 <script>
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import iconFont from "@/assets/fonts/iconfont.css"
 
 export default {
   components: {

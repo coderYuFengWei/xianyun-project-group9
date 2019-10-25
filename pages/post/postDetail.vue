@@ -84,7 +84,7 @@ export default {
     PostDetailAside,
     PostComment
   },
-  
+
   methods: {
     //收藏文章
     handleCollect() {
@@ -196,9 +196,10 @@ export default {
         padding: 0 20px;
       }
     }
-    .post {
+    .content {
       /deep/ img {
-        width: 100% !important;
+        max-width: 700px;
+        margin: 10px 0;
       }
     }
     .header {

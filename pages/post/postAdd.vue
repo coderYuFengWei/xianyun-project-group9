@@ -104,13 +104,13 @@ export default {
 
       rules: {
         title: [{ required: true, message: "请填写标题", trigger: "blur" }],
-        city: [
-          {
-            required: true,
-            message: "请输入正确城市",
-            trigger: "blur"
-          }
-        ]
+        // city: [
+        //   {
+        //     required: true,
+        //     message: "请输入正确城市",
+        //     trigger: "blur"
+        //   }
+        // ]
       }
     };
   },

@@ -3,10 +3,8 @@
     <Item :data="data.parent" v-if="data.parent" @handleReply="handleReply" />
     <el-row class="user" type="flex" justify="space-between">
       <el-row class="user_info">
-        <span>
-          <img :src="$axios.defaults.baseURL+data.account.defaultAvatar" />
-          {{data.account.nickname}}
-        </span>
+        <img :src="$axios.defaults.baseURL+data.account.defaultAvatar" />
+        <span>{{data.account.nickname}}</span>
         <i>{{data.created_at|format}}</i>
       </el-row>
       <em>{{data.level}}</em>
@@ -55,7 +53,7 @@ export default {
 
 <style scoped lang="less">
 .containar {
-  padding: 10px 15px;
+  padding: 10px 3px;
   border: 1px solid #dddddd;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -65,6 +63,12 @@ export default {
     margin-bottom: 10px;
     margin-top: 5px;
     font-size: 13px;
+
+    .user_info {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
     img {
       width: 17px;
       height: 17px;
@@ -86,11 +90,17 @@ export default {
       padding: 5px;
       width: 80px;
       height: 80px;
-      border: 1px dashed #dddddd;
       border-radius: 5px;
+      box-sizing: border-box;
+      margin: 0 5px;
+      position: relative;
       img {
         width: 100%;
         height: 100%;
+        display: block;
+        position: absolute;
+        top: -10px;
+        left: 0;
       }
     }
     span {

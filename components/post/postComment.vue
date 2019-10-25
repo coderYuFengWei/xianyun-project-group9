@@ -250,7 +250,7 @@ export default {
     margin-bottom: 50px;
   }
   .commends {
-    border-bottom: 1px dashed #cccccc;
+    border-bottom: 1px solid #cccccc;
   }
 }
 </style>

@@ -99,7 +99,6 @@
         <!-- 地图组件 -->
         <div class="Matse">
           <div style="padding:50px;">
-            <h3>高德地图</h3>
             <span>请输入出发地点</span>
 
             <el-row style="margin-bottom:20px;">
@@ -113,7 +112,9 @@
             </el-row>
 
             <!-- 地图的容器 -->
-            <div id="container"></div>
+            <div id="container">
+              <img src="../../imgs/map1.jpg" alt />
+            </div>
             <div id="panel"></div>
           </div>
         </div>
@@ -164,7 +165,7 @@
               score-template="{value}"
               class="scorexx"
             ></el-rate>
-            <span v-if="item.stars > 3">推荐</span>
+            <span v-if="item.stars >= 3">推荐</span>
           </div>
           <div class="scores">
             <el-progress
@@ -518,6 +519,7 @@ export default {
 }
 .Matse {
   color: blue;
+  // margin-left: 80px;
   span {
     color: #000;
   }

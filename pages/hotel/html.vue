@@ -82,7 +82,7 @@
       <el-col :span="4">品牌信息</el-col>
       <el-col :span="20">-</el-col>
     </el-row>
-    <el-row class="assest">
+    <el-row class="assest">F
       <el-col :span="4">品牌信息</el-col>
       <el-col :span="20">-</el-col>
     </el-row>

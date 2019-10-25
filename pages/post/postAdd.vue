@@ -15,16 +15,19 @@
           <VueEditor :config="config" ref="vueEditor" />
         </el-form-item>
 
-        <!-- 选择城市输入框 -->
-        <el-form-item label="选择城市">
-          <el-autocomplete
-            class="inline-input"
-            v-model="form.city"
-            :fetch-suggestions="querySearch"
-            placeholder="请搜索游玩城市"
-            @blur="handleBlur"
-          ></el-autocomplete>
-        </el-form-item>
+        <div class="ppp">
+          <span class="cities">选择城市</span>
+          <!-- 选择城市输入框 -->
+          <el-form-item>
+            <el-autocomplete
+              class="inline-input"
+              v-model="form.city"
+              :fetch-suggestions="querySearch"
+              placeholder="请搜索游玩城市"
+              @blur="handleBlur"
+            ></el-autocomplete>
+          </el-form-item>
+        </div>
 
         <!-- 发布 -->
         <el-form-item>
@@ -382,5 +385,17 @@ a {
 }
 .inline-input {
   padding-top: 21px;
+}
+
+/deep/.ppp {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  .cities {
+    margin-top: 14px;
+    margin-right: 10px;
+    font-size: 16px !important;
+    color: black !important;
+  }
 }
 </style>

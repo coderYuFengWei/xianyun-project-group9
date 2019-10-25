@@ -23,7 +23,7 @@
       <el-row class="btn">
         <el-row class="comment">
           <i class="el-icon-edit-outline"></i>
-          <span>评论(100)</span>
+          <span>评论({{com_length}})</span>
         </el-row>
         <el-row class="collect">
           <i class="el-icon-star-off" @click="handleCollect"></i>
@@ -37,7 +37,7 @@
         </el-row>
         <el-row class="like">
           <i class="iconfont iconding" @click="handleLike"></i>
-          <span>点赞(54)</span>
+          <span>点赞({{item.like}})</span>
         </el-row>
       </el-row>
 
@@ -63,6 +63,7 @@ export default {
       creat_time: "",
       dialogImageUrl: "",
       dialogVisible: false,
+      com_length:0,
 
       commentContent: {
         content: "",
@@ -112,6 +113,7 @@ export default {
       }).then(res => {
         if (res.status === 200) {
           this.$message.success(res.data.message);
+          this.item.like++
         }
       });
     },
@@ -125,7 +127,7 @@ export default {
         let { data } = res.data;
         let cityId = res.city;
         this.item = data[0];
-        console.log(this.item);
+        this.com_length = this.item.comments.length;
         this.creat_time = moment(this.item.update_at).format(
           `YYYY-MM-DD  hh:mm`
         );

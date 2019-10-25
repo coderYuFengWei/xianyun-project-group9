@@ -58,7 +58,7 @@ export default {
   border-radius: 5px;
   margin-bottom: 10px;
   box-sizing: border-box;
-  width: 720px;
+  background-color: #f9f9f9;
   .user {
     margin-bottom: 10px;
     margin-top: 5px;

@@ -21,38 +21,33 @@
             {{item.name}}
             <span v-if="item.hotellevel=== null"></span>
             <span v-if="item.hotellevel !== null && item.hotellevel.level === 5">
-              <i class="el-icon-star-on"></i>
-              <i class="el-icon-star-on"></i>
-              <i class="el-icon-star-on"></i>
-              <i class="el-icon-star-on"></i>
-              <i class="el-icon-star-on"></i>
-              <em>5星级</em>
+              <i class="iconfont icon-huiyuanhuangguanguanjun"></i>
+              <i class="iconfont icon-huiyuanhuangguanguanjun"></i>
+              <i class="iconfont icon-huiyuanhuangguanguanjun"></i>
+              <i class="iconfont icon-huiyuanhuangguanguanjun"></i>
+              <i class="iconfont icon-huiyuanhuangguanguanjun"></i>
             </span>
 
             <span v-if="item.hotellevel !== null && item.hotellevel.level === 4">
-              <i class="el-icon-star-on"></i>
-              <i class="el-icon-star-on"></i>
-              <i class="el-icon-star-on"></i>
-              <i class="el-icon-star-on"></i>
-              <em>4星级</em>
+              <i class="iconfont icon-huiyuanhuangguanguanjun"></i>
+              <i class="iconfont icon-huiyuanhuangguanguanjun"></i>
+              <i class="iconfont icon-huiyuanhuangguanguanjun"></i>
+              <i class="iconfont icon-huiyuanhuangguanguanjun"></i>
             </span>
 
             <span v-if="item.hotellevel !== null && item.hotellevel.level === 3">
-              <i class="el-icon-star-on"></i>
-              <i class="el-icon-star-on"></i>
-              <i class="el-icon-star-on"></i>
-              <em>3星级</em>
+              <i class="iconfont icon-huiyuanhuangguanguanjun"></i>
+              <i class="iconfont icon-huiyuanhuangguanguanjun"></i>
+              <i class="iconfont icon-huiyuanhuangguanguanjun"></i>
             </span>
 
             <span v-if="item.hotellevel !== null && item.hotellevel.level === 2">
-              <i class="el-icon-star-on"></i>
-              <i class="el-icon-star-on"></i>
-              <em>2星级</em>
+              <i class="iconfont icon-huiyuanhuangguanguanjun"></i>
+              <i class="iconfont icon-huiyuanhuangguanguanjun"></i>
             </span>
 
             <span v-if="item.hotellevel !== null && item.hotellevel.level === 1">
-              <i class="el-icon-star-on"></i>
-              <em>1星级</em>
+              <i class="iconfont icon-huiyuanhuangguanguanjun"></i>
             </span>
           </div>
         </div>
@@ -361,6 +356,9 @@ export default {
     padding: 20px 0;
     border-bottom: 1px solid #eee;
     color: #666;
+    span:nth-child(2) {
+      margin: 0 50px;
+    }
   }
   div:hover {
     background: #f5f7fa;

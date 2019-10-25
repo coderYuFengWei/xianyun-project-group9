@@ -122,11 +122,13 @@
       </el-col>
       <el-col :span="5" class="link">
         <el-row v-for="(item,index) in item.products">
-          <el-col>
-            <span class="classify">{{item.name}}</span>
-            <span style="color:#f90">￥{{item.price}}</span>起
-            <i class="iconfont icon-jiantou"></i>
-          </el-col>
+          <a href="https://hotels.ctrip.com">
+            <el-col>
+              <span class="classify">{{item.name}}</span>
+              <span style="color:#f90">￥{{item.price}}</span>起
+              <i class="iconfont icon-jiantou"></i>
+            </el-col>
+          </a>
         </el-row>
       </el-col>
     </el-row>

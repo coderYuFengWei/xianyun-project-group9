@@ -2,7 +2,8 @@
   <div class="aside">
     <h4 class="header">相关攻略</h4>
     <div class="post_list" v-for="(item,index) in data" :key="index" @click="handleDetail(item.id)">
-      <img :src="item.images[0]" alt />
+      <img src="../../imgs/zan.jpg" v-if="item.images.length===0" />
+      <img :src="item.images[0]" v-else />
 
       <div class="left">
         <h5>{{item.title}}</h5>

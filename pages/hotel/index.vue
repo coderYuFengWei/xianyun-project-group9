@@ -69,7 +69,7 @@
         <el-col :span="1"></el-col>
       </el-row>
       <el-row>
-        <el-col :span="15" class="introduction">
+        <el-col :span="13" class="introduction">
           <el-row>
             <el-col :span="3">区域：</el-col>
             <el-col :span="21">
@@ -160,7 +160,7 @@
             </el-col>
           </el-row>
         </el-col>
-        <el-col :span="9">
+        <el-col :span="11">
           <hotelMap :hotel="hotel"></hotelMap>
         </el-col>
       </el-row>

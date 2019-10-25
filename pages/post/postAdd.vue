@@ -4,9 +4,9 @@
       <p>发表新攻略</p>
       <span>分享你的个人游记，让更多人看到哦！</span>
 
-      <el-form ref="form" :model="form" label-width="90px" :rules="rules">
+      <el-form ref="form" :model="form" label-width="90px">
         <!-- 标题输入框 -->
-        <el-form-item class="title" prop="title">
+        <el-form-item class="title">
           <el-input v-model="form.title" placeholder="请输入标题"></el-input>
         </el-form-item>
 
@@ -16,7 +16,7 @@
         </el-form-item>
 
         <!-- 选择城市输入框 -->
-        <el-form-item label="选择城市" prop="city">
+        <el-form-item label="选择城市">
           <el-autocomplete
             class="inline-input"
             v-model="form.city"
@@ -76,7 +76,9 @@ export default {
 
       //   存放arr城市的数组
       cities: [],
+
       input: "",
+
       arr: [],
 
       config: {
@@ -100,18 +102,18 @@ export default {
             insert(this.$axios.defaults.baseURL + res.data[0].url);
           }
         }
-      },
-
-      rules: {
-        title: [{ required: true, message: "请填写标题", trigger: "blur" }],
-        // city: [
-        //   {
-        //     required: true,
-        //     message: "请输入正确城市",
-        //     trigger: "blur"
-        //   }
-        // ]
       }
+
+      // rules: {
+      //     title: [{ required: true, message: "", trigger: "blur" }]
+      //     city: [
+      //         {
+      //             required: true,
+      //             message: "请输入正确城市",
+      //             trigger: "blur"
+      //         }
+      //     ]
+      // }
     };
   },
 
@@ -134,12 +136,27 @@ export default {
   },
 
   methods: {
-
     // 提交表单时触发
     onSubmit() {
       var quill = this.$refs.vueEditor.editor;
       this.form.content = quill.root.innerHTML;
       console.log(this.form);
+      if (!this.form.title) {
+        this.$confirm("请填写标题", "提示", {
+          confirmButtonText: "确定",
+          showCancelButton: false,
+          type: "warning"
+        });
+        return;
+      }
+      if (!this.form.city) {
+        this.$confirm("请选择城市", "提示", {
+          confirmButtonText: "确定",
+          showCancelButton: false,
+          type: "warning"
+        });
+        return;
+      }
       this.$refs.form.validate(valid => {
         if (valid) {
           this.$axios({
@@ -154,6 +171,7 @@ export default {
             if (res.status === 200) {
               this.$message.success(res.data.message);
               this.$router.push({ path: "/post" });
+              // window.location.reload();
 
               this.form = {
                 content: "",
@@ -204,8 +222,8 @@ export default {
       var time = moment().format("YYYY-MM-DD");
       const data = { ...this.form, time };
       this.$store.commit("post/setdraft", data);
-
-      console.log(data, 11111);
+      window.location.reload();
+      // console.log(data, 11111);
     },
 
     // 草稿箱点击删除时触发
@@ -231,16 +249,17 @@ export default {
         });
     },
 
-    // 点击草稿箱内容
+    // 点击草稿箱内容时执行
     handleEdit(index) {
-      const data = this.$store.state.post.draft;
-      this.form = data[index];
+      const { time, ...prop } = this.$store.state.post.draft[index];
+      this.form = prop;
       var quill = this.$refs.vueEditor.editor;
       quill.clipboard.dangerouslyPasteHTML(0, this.form.content);
     }
   }
 };
 </script>;
+
 <style scoped lang="less">
 .container {
   width: 1000px;

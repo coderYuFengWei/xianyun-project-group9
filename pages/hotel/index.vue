@@ -75,8 +75,9 @@
             <el-col :span="21">
               <nuxt-link to :class="{'active':tag==-1}" @click.native="tag=-1">全部</nuxt-link>
               <nuxt-link
-                to
+                to="#"
                 v-for="(item,index) in showList"
+                :key="index"
                 @click.native="hangletag(index)"
                 :class="{'active':index==tag}"
                 style="line-height:30px;"
